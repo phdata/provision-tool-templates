@@ -1,4 +1,0 @@
-roleGrants:
-  - name: "{{ role_name }}"
-    users:
-      - {{ user_name }}

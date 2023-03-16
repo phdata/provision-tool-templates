@@ -29,13 +29,13 @@ At the core of this stack are 3 distinct groupings of databases, schemas, wareho
 
 ![Tram User model](docs/images/phdata-tram-base-stack-user.png)
 
-A user workspace can be granted access to sources or products using the [groups/user-sources.yml](groups/users-sources.yml) or [groups/user-products.yml](groups/user-products.yml).  Adding entries in these files allow a user to develop in their workspace against a source or product dataset.
+A user workspace can be granted access to sources or products using the [groups/user-sources.yml](groups/users-sources.yml) or [groups/user-products.yml](groups/user-product.yaml).  Adding entries in these files allow a user to develop in their workspace against a source or product dataset.
 
 ### User Source
 
 `{{ access_level }}`:
 
-- **RW**: Grants the user workspace read write access to the data source.  NOTE: Rarely should users be granted RW access at this level instead they should be granted functional access to the data source using [groups/source-members.yml](groups/source-members.yml).
+- **RW**: Grants the user workspace read write access to the data source.  NOTE: Rarely should users be granted RW access at this level instead they should be granted functional access to the data source using [groups/source-members.yml](groups/source-member.yaml).
 - **RO**: Grants the user workspace read only access to all schemas in the source database.
 - **SHARED**: Grants the user workspace read only access to the `SHARED` schema in the source databases.
 
@@ -45,7 +45,7 @@ A user workspace can be granted access to sources or products using the [groups/
 
 `{{ access_level }}`:
 
-- **RW**: Grants the user workspace read write access to the data source.  NOTE: Rarely should users be granted RW access at this level instead they should be granted functional access to the data source using [groups/source-members.yml](groups/source-members.yml).
+- **RW**: Grants the user workspace read write access to the data source.  NOTE: Rarely should users be granted RW access at this level instead they should be granted functional access to the data source using [groups/source-members.yml](groups/source-member.yaml).
 - **RO**: Grants the user workspace read only access to all schemas in the source database.
 - **SHARED**: Grants the user workspace read only access to the `SHARED` schema in the source databases.
 
@@ -60,7 +60,7 @@ The Data source model is used to define an external data source.  These sources 
 
 ### Source Member
 
-Users can be granted functional access to a data source using the [groups/source-members.yml](groups/source-members.yml) file.  These memberships define users who are most likely part of the data engineering team ingesting the source systems into Snowflake.
+Users can be granted functional access to a data source using the [groups/source-members.yml](groups/source-member.yaml) file.  These memberships define users who are most likely part of the data engineering team ingesting the source systems into Snowflake.
 
 `{{ function }}`:
 
@@ -77,11 +77,11 @@ A data [product](models/product.yml) (or project) consume data from a data sourc
 
 ### Product Source
 
-Products can be granted access to data sources using the [groups/product-sources.yml](groups/product-sources.yml) file.
+Products can be granted access to data sources using the [groups/product-sources.yml](groups/product-source.yaml) file.
 
 `{{ access_level }}`:
 
-- **RW**: Grants the product read write access to the data source.  NOTE: Rarely should users be granted RW access at this level instead they should be granted functional access to the data source using [groups/source-members.yml](groups/source-members.yml).
+- **RW**: Grants the product read write access to the data source.  NOTE: Rarely should users be granted RW access at this level instead they should be granted functional access to the data source using [groups/source-members.yml](groups/source-member.yaml).
 - **RO**: Grants the product read only access to all schemas in the source database.
 - **SHARED**: Grants the product read only access to the `SHARED` schema in the source databases.
 
@@ -107,7 +107,7 @@ A [service account](models/service-account.yml) is a way to configure programmat
 
 ### Service Account Source
 
-Service accounts can be granted functional access to a source using the [groups/service-account-sources.yml](groups/service-account-sources.yml) file.
+Service accounts can be granted functional access to a source using the [groups/service-account-sources.yml](groups/service-account-source.yaml) file.
 
 `{{ function }}`:
 
@@ -130,7 +130,7 @@ Service accounts can be granted functional access to a product using the [groups
 
 ## Snowflake Admin Roles
 
-To a user access to Snowflake's built in administrator roles use the [groups/admin-members.yml](groups/admin-members.yml) file.
+To a user access to Snowflake's built in administrator roles use the [groups/admin-members.yml](groups/admin-member.yaml) file.
 
 See Snowflake documentation on built in user roles.
 

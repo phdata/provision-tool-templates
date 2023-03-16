@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "converting group $1"
+
+sed -E -i '' 's/members:/entries:/g' $1

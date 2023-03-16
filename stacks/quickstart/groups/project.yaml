@@ -1,0 +1,11 @@
+# Creates projects
+defaults:
+  warehouse_size: XSMALL
+entries:
+  - project_name: marketing
+    env: dev
+  - project_name: marketing
+    env: prod
+    warehouse_size: SMALL
+  - project_name: manhattan
+    env: dev

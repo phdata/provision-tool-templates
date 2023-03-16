@@ -1,0 +1,4 @@
+roleGrants:
+  - name: DR_S_{{ env }}_{{ source }}_{{ access_level }}
+    toRoles:
+     - DR_P_{{ env }}_{{ product }}_{{ access_level }}

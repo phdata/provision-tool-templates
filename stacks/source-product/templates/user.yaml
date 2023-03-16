@@ -1,0 +1,53 @@
+users:
+  - name: "{{ username }}"
+    properties:
+      DISPLAY_NAME: "'{{ username }}'"
+      EMAIL: "'{{ email }}'"
+      DEFAULT_ROLE: "FR_U_{{ username }}"
+      MUST_CHANGE_PASSWORD: "{{ must_change_password }}"
+      PASSWORD: "'{{ password }}'"
+      DEFAULT_WAREHOUSE: "USER_ADH_WH"
+      DEFAULT_NAMESPACE: "USER.{{ username }}"
+      RSA_PUBLIC_KEY: "'{{ rsa_public_key }}'"
+      RSA_PUBLIC_KEY_2: "'{{ rsa_public_key_2 }}'"
+roles:
+    # Data access
+  - name: "DR_U_{{ username }}"
+    # Functional access
+  - name: "FR_U_{{ username }}"
+databases:
+  - name: "USER"
+schemas:
+  - name: "{{ username }}"
+    database: "USER"
+privilegeGrants:
+    # Database
+  - privilege: "USAGE"
+    objectType: DATABASE
+    objectName: "USER"
+    roleName: "DR_U_{{ username }}"
+    grantOption: false
+  - privilege: "ALL PRIVILEGES"
+    objectType: SCHEMA
+    objectName: "USER.{{ username }}"
+    roleName: "DR_U_{{ username }}"
+    grantOption: true
+roleGrants:
+  - name: "AR_USER_ADH_WH"
+    toRoles:
+      - "FR_U_{{ username }}"
+  - name: "AR_A_TASK_OPERATOR"
+    toRoles:
+      - "FR_U_{{ username }}"
+  - name: "AR_I_ADLS_PHDATA_SNOWFLAKE_STAGE"
+    toRoles:
+      - "FR_U_{{ username }}"
+  - name: "DR_U_{{ username }}"
+    toRoles:
+      - "FR_U_{{ username }}"
+  - name: "FR_U_{{ username }}"
+    toUsers:
+      - "{{ username }}"
+  - name: "FR_U_{{ username }}"
+    toRoles:
+      - "SYSADMIN"

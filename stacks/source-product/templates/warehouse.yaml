@@ -1,0 +1,24 @@
+warehouses:
+  - name: "{{ name }}_WH"
+    properties:
+      WAREHOUSE_SIZE: "{{ warehouse_size }}"
+      INITIALLY_SUSPENDED: true
+      SCALING_POLICY: "{{ scaling_policy }}"
+      AUTO_SUSPEND: "{{ auto_suspend }}"
+      AUTO_RESUME: "{{ auto_resume }}"
+      MIN_CLUSTER_COUNT: "{{ min_cluster_count }}"
+      MAX_CLUSTER_COUNT: "{{ max_cluster_count }}"
+roles:
+  - name: "AR_{{ name }}_WH"
+  - name: "AR_{{ name }}_WH_ADMIN"
+privilegeGrants:
+  - privilege: "USAGE"
+    objectType: WAREHOUSE
+    objectName: "{{ name }}_WH"
+    roleName: "AR_{{ name }}_WH"
+    grantOption: false
+  - privilege: "ALL PRIVILEGES"
+    objectType: WAREHOUSE
+    objectName: "{{ name }}_WH"
+    roleName: "AR_{{ name }}_WH_ADMIN"
+    grantOption: true

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -x
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <path to legacy stack>"
+    exit 1
+fi
+
+
+# check if converte the path exists and if it does delete it
+if [ -d "$1-converted" ]; then
+    rm -rf $1-converted
+fi
+
+
+converted_path=$1-converted
+
+# Create a new directory for the converted stack
+cp -r $1 $converted_path
+
+group_convert_script=`pwd`/convert-group
+template_convert_script=`pwd`/convert-template
+
+mv $converted_path/models $converted_path/templates
+
+find_filter = "-type f \( -name "*.yaml" -o -name "*.yml" \)"
+find $converted_path/groups $find_filter -exec $group_convert_script '{}' \;
+find $converted_path/templates $find_filter -exec $template_convert_script '{}' \;
+
+

@@ -1,0 +1,233 @@
+databases:
+  - name: "P_{{ env }}_{{ product }}"
+schemas:
+  - name: MAIN
+    database: "P_{{ env }}_{{ product }}"
+  - name: INTEGRATION
+    database: "P_{{ env }}_{{ product }}"
+  - name: SHARED
+    database: "P_{{ env }}_{{ product }}"
+warehouses:
+  - name: "P_{{ env }}_{{ product }}_WH"
+    properties:
+      WAREHOUSE_SIZE: "{{ warehouse_size }}"
+      INITIALLY_SUSPENDED: true
+      SCALING_POLICY: "{{ scaling_policy }}"
+      AUTO_SUSPEND: "{{ auto_suspend }}"
+      AUTO_RESUME: "{{ auto_resume }}"
+      MIN_CLUSTER_COUNT: "{{ min_cluster_count }}"
+      MAX_CLUSTER_COUNT: "{{ max_cluster_count }}"
+roles:
+  # Warehouse
+  - name: AR_P_{{ env }}_{{ product }}_WH
+  - name: AR_P_{{ env }}_{{ product }}_WH_ADMIN
+  # Data
+  - name: DR_P_{{ env }}_{{ product }}_RW
+  - name: DR_P_{{ env }}_{{ product }}_RO
+  - name: DR_P_{{ env }}_{{ product }}_SHARED
+  # Functional
+  - name: FR_P_{{ env }}_{{ product }}_ADMIN
+  - name: FR_P_{{ env }}_{{ product }}_ENGINEER
+  - name: FR_P_{{ env }}_{{ product }}_READER
+privilegeGrants:
+    # Warehouse
+    # ADMIN
+  - privilege: "ALL PRIVILEGES"
+    objectType: "WAREHOUSE"
+    objectName: "P_{{ env }}_{{ product }}_WH"
+    roleName: "AR_P_{{ env }}_{{ product }}_WH_ADMIN"
+    grantOption: true
+    # USER
+  - privilege: "USAGE"
+    objectType: "WAREHOUSE"
+    objectName: "P_{{ env }}_{{ product }}_WH"
+    roleName: "AR_P_{{ env }}_{{ product }}_WH"
+    grantOption: false
+    # Database
+    # ADMIN
+  - privilege: "ALL PRIVILEGES"
+    objectType: "DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "FR_P_{{ env }}_{{ product }}_ADMIN"
+    grantOption: true
+    # USER
+  - privilege: "USAGE"
+    objectType: "DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+  - privilege: "USAGE"
+    objectType: "DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+  - privilege: "USAGE"
+    objectType: "DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_SHARED"
+    grantOption: false
+    # Schema
+    # ADMIN
+  - privilege: "ALL PRIVILEGES"
+    objectType: "ALL SCHEMAS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: true
+    # USER
+  - privilege: "USAGE"
+    objectType: "ALL SCHEMAS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+  - privilege: "USAGE"
+    objectType: "SCHEMA"
+    objectName: "P_{{ env }}_{{ product }}.SHARED"
+    roleName: "DR_P_{{ env }}_{{ product }}_SHARED"
+    grantOption: false
+    # Table
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE TABLES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE TABLES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE TABLES IN SCHEMA"
+    objectName: "P_{{ env }}_{{ product }}.SHARED"
+    roleName: "DR_P_{{ env }}_{{ product }}_SHARED"
+    grantOption: false
+    # External Table
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE EXTERNAL TABLES IN SCHEMA"
+    objectName: "P_{{ env }}_{{ product }}.SHARED"
+    roleName: "DR_P_{{ env }}_{{ product }}_SHARED"
+    grantOption: false
+    # View
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE VIEWS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE VIEWS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE VIEWS IN SCHEMA"
+    objectName: "P_{{ env }}_{{ product }}.SHARED"
+    roleName: "DR_P_{{ env }}_{{ product }}_SHARED"
+    grantOption: false
+    # Materialized View
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE MATERIALIZED VIEWS IN SCHEMA"
+    objectName: "P_{{ env }}_{{ product }}.SHARED"
+    roleName: "DR_P_{{ env }}_{{ product }}_SHARED"
+    grantOption: false
+    # Stream
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE STREAMS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+    # Task
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE TASKS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+  - privilege: "MONITOR"
+    objectType: "FUTURE TASKS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+    # Stage
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE STAGES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+  - privilege: "READ"
+    objectType: "FUTURE STAGES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RO"
+    grantOption: false
+    # File Format
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE FILE FORMATS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+    # Sequence
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE SEQUENCES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+    # Function
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE FUNCTIONS IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+    # Procedure
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE PROCEDURES IN DATABASE"
+    objectName: "P_{{ env }}_{{ product }}"
+    roleName: "DR_P_{{ env }}_{{ product }}_RW"
+    grantOption: false
+roleGrants:
+  - name: "AR_P_{{ env }}_{{ product }}_WH"
+    toRoles:
+      - "FR_P_{{ env }}_{{ product }}_READER"
+  - name: "AR_A_TASK_OPERATOR"
+    toRoles:
+      - "FR_P_{{ env }}_{{ product }}_ENGINEER"
+  - name: "AR_I_ADLS_PHDATA_SNOWFLAKE_STAGE"
+    toRoles:
+      - "FR_P_{{ env }}_{{ product }}_ENGINEER"
+  - name: "AR_P_{{ env }}_{{ product }}_WH_ADMIN"
+    toRoles:
+      - "FR_P_{{ env }}_{{ product }}_ENGINEER"
+  - name: "DR_P_{{ env }}_{{ product }}_SHARED"
+    toRoles:
+      - "DR_P_{{ env }}_{{ product }}_RO"
+  - name: "DR_P_{{ env }}_{{ product }}_RO"
+    toRoles:
+      - "DR_P_{{ env }}_{{ product }}_RW"
+  - name: "DR_P_{{ env }}_{{ product }}_RO"
+    toRoles:
+      - "FR_P_{{ env }}_{{ product }}_READER"
+  - name: "DR_P_{{ env }}_{{ product }}_RW"
+    toRoles:
+      - "FR_P_{{ env }}_{{ product }}_ENGINEER"
+  - name: "FR_P_{{ env }}_{{ product }}_ENGINEER"
+    toRoles:
+      - "FR_P_{{ env }}_{{ product }}_ADMIN"
+  - name: "FR_P_{{ env }}_{{ product }}_ADMIN"
+    toRoles:
+      - "SYSADMIN"

@@ -1,0 +1,229 @@
+databases:
+  - name: "S_{{ env }}_{{ source }}"
+schemas:
+  - name: SHARED
+    database: "S_{{ env }}_{{ source }}"
+  - name: RAW
+    database: "S_{{ env }}_{{ source }}"
+  - name: STG
+    database: "S_{{ env }}_{{ source }}"
+warehouses:
+  - name: "S_{{ env }}_{{ source }}_WH"
+    properties:
+      WAREHOUSE_SIZE: "{{ warehouse_size }}"
+      INITIALLY_SUSPENDED: true
+      SCALING_POLICY: "{{ scaling_policy }}"
+      AUTO_SUSPEND: "{{ auto_suspend }}"
+      AUTO_RESUME: "{{ auto_resume }}"
+      MIN_CLUSTER_COUNT: "{{ min_cluster_count }}"
+      MAX_CLUSTER_COUNT: "{{ max_cluster_count }}"
+roles:
+  # Warehouse
+  - name: AR_S_{{ env }}_{{ source }}_WH_ADMIN
+  # Data 
+  - name: DR_S_{{ env }}_{{ source }}_RW
+  - name: DR_S_{{ env }}_{{ source }}_RO
+  - name: DR_S_{{ env }}_{{ source }}_SHARED
+  # Functional
+  - name: FR_S_{{ env }}_{{ source }}_ADMIN
+  - name: FR_S_{{ env }}_{{ source }}_ENGINEER
+privilegeGrants:
+    # Warehouse
+  - privilege: "ALL PRIVILEGES"
+    objectType: "WAREHOUSE"
+    objectName: "S_{{ env }}_{{ source }}_WH"
+    roleName: "AR_S_{{ env }}_{{ source }}_WH_ADMIN"
+    grantOption: true
+    # Database
+    # ADMIN
+  - privilege: "ALL PRIVILEGES"
+    objectType: "DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "FR_S_{{ env }}_{{ source }}_ADMIN"
+    grantOption: true
+    # USER
+  - privilege: "USAGE"
+    objectType: "DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "USAGE"
+    objectType: "DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+  - privilege: "USAGE"
+    objectType: "DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    grantOption: false
+    # Schema
+    # ADMIN
+  - privilege: "ALL PRIVILEGES"
+    objectType: "ALL SCHEMAS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: true
+    # USER
+  - privilege: "USAGE"
+    objectType: "ALL SCHEMAS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+  - privilege: "USAGE"
+    objectType: "SCHEMA"
+    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    grantOption: false
+    # Table
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE TABLES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE TABLES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE TABLES IN SCHEMA"
+    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    grantOption: false
+    # External Table
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE EXTERNAL TABLES IN SCHEMA"
+    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    grantOption: false
+    # View
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE VIEWS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE VIEWS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE VIEWS IN SCHEMA"
+    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    grantOption: false
+    # Materialized View
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+  - privilege: "SELECT"
+    objectType: "FUTURE MATERIALIZED VIEWS IN SCHEMA"
+    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    grantOption: false
+    # Pipe 
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE PIPES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "MONITOR"
+    objectType: "FUTURE PIPES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+    # Stream
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE STREAMS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+    # Task
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE TASKS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "MONITOR"
+    objectType: "FUTURE TASKS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+    # Stage
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE STAGES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+  - privilege: "READ"
+    objectType: "FUTURE STAGES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    grantOption: false
+    # File Format
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE FILE FORMATS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+    # Sequence
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE SEQUENCES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+    # Function
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE FUNCTIONS IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+    # Procedure
+  - privilege: "ALL PRIVILEGES"
+    objectType: "FUTURE PROCEDURES IN DATABASE"
+    objectName: "S_{{ env }}_{{ source }}"
+    roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    grantOption: false
+roleGrants:
+  - name: "AR_S_{{ env }}_{{ source }}_WH_ADMIN"
+    toRoles:
+      - "FR_S_{{ env }}_{{ source }}_ENGINEER"
+  - name: "AR_A_TASK_OPERATOR"
+    toRoles:
+      - "FR_S_{{ env }}_{{ source }}_ENGINEER"
+  - name: "AR_I_ADLS_PHDATA_SNOWFLAKE_STAGE"
+    toRoles:
+      - "FR_S_{{ env }}_{{ source }}_ENGINEER"
+  - name: "DR_S_{{ env }}_{{ source }}_SHARED"
+    toRoles:
+      - "DR_S_{{ env }}_{{ source }}_RO"
+  - name: "DR_S_{{ env }}_{{ source }}_RO"
+    toRoles:
+      - "DR_S_{{ env }}_{{ source }}_RW"
+  - name: "DR_S_{{ env }}_{{ source }}_RW"
+    toRoles:
+      - "FR_S_{{ env }}_{{ source }}_ENGINEER"
+  - name: "FR_S_{{ env }}_{{ source }}_ENGINEER"
+    toRoles:
+      - "FR_S_{{ env }}_{{ source }}_ADMIN"
+  - name: "FR_S_{{ env }}_{{ source }}_ADMIN"
+    toRoles:
+      - "SYSADMIN"

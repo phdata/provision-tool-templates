@@ -1,0 +1,8 @@
+# Template for sandalone warehouses
+roles:
+  - name: "{{ name }}"
+warehouses:
+  - name: "{{name}}"
+    properties:
+      WAREHOUSE_SIZE: "{{ size }}"
+      INITIALLY_SUSPENDED: true

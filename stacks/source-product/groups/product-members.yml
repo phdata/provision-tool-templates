@@ -1,7 +1,0 @@
-model:
-  name: product-member
-members:
-  - env: DEV
-    product: PDL
-    username: tfokken
-    function: ADMIN

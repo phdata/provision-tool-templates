@@ -1,5 +1,0 @@
-# Template to grant user access to project
-roleGrants:
-  - name: {{env}}_{{project}}_{{access}}
-    users: 
-      - {{username}}

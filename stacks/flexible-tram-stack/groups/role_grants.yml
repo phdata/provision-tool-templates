@@ -1,9 +1,0 @@
-model:
-  name: role_to_user_grant
-members:
-  - role_name: SYSADMIN
-    user_name: EHYRKAS
-  - role_name: SECURITYADMIN
-    user_name: EHYRKAS
-  - role_name: USERADMIN
-    user_name: EHYRKAS    

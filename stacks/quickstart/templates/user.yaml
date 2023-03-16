@@ -1,0 +1,27 @@
+# Template for users and user databases
+users:
+  - name: "{{username}}"
+    properties:
+      EMAIL : "'{{email}}'"
+      DEFAULT_ROLE : "WS_{{username}}"
+      LOGIN_NAME: "'{{username}}'"
+      DEFAULT_WAREHOUSE: "USER_WH1"
+      RSA_PUBLIC_KEY: "'{{rsa_public_key}}'"
+      RSA_PUBLIC_KEY_2: "'{{rsa_public_key_2}}'"
+roles:
+  - name: "WS_{{username}}"
+databases:
+  - name: "USER_{{username}}"
+privilegeGrants:
+  - privilege: "ALL PRIVILEGES"
+    objectType: DATABASE
+    objectName: "USER_{{username}}"
+    roleName: "WS_{{username}}"
+    grantOption: true
+roleGrants:
+  - name: USER_WH1
+    toRoles:
+      - "WS_{{username}}"
+  - name: "WS_{{username}}"
+    toUsers:
+      - "{{username}}"

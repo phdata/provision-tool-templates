@@ -1,0 +1,5 @@
+entries:
+  - env: DEV
+    product: PDL
+    username: tfokken
+    function: ADMIN

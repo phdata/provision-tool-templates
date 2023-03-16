@@ -1,3 +1,4 @@
 *.log
 *.jar
-tram-statements.sql
+.idea
+plan.sql

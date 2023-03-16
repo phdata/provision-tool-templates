@@ -1,0 +1,19 @@
+template:
+  path: project-member.yaml
+entries:
+  - project: marketing
+    env: dev
+    username: testuser1
+    access: RW
+  - project: marketing
+    env: prod
+    username: testuser1
+    access: RW
+  - project: marketing
+    env: prod
+    username: testuser2
+    access: RO
+  - project: manhattan
+    env: dev
+    username: testuser2
+    access: RO

@@ -1,0 +1,5 @@
+entries:
+  - env: DEV
+    source: JIRA
+    username: tfokken
+    access_level: RO
