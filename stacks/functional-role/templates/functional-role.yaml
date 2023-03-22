@@ -7,7 +7,7 @@ roleGrants:
   - name: {{ role_name }}
     {% if users_granted %}
     toUsers: {{ users_granted }}
-    {% endif %
+    {% endif %}
   {% if granted_roles %}
       {% for gr in granted_roles %}
   - name: {{ gr }}
