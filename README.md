@@ -5,7 +5,7 @@ This repository contains templates for bootstrapping the phData [Provision Tool]
 
 ## Stacks
 
-Tram example stacks can be found in the [stacks](./stacks) directory.
+Example stacks can be found in the [stacks](./stacks) directory.
 
 ### Source-Product
 
@@ -14,6 +14,11 @@ The [Source-Product](./stacks/source-product) stack organizes data into 'sources
 ### Quickstart
 
 This stack is a simple stack demonstrating basic Provision tool functionality. If you are looking for a Tram model stack to start from, consider the Source-Product stack.
+
+### Functional-Role  
+
+This stack is a portion of a stack to manage Functional Roles in your environment.
+
 
 ## CI/CD Templates
 

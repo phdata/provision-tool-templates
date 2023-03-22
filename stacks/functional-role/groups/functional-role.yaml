@@ -1,0 +1,13 @@
+defaults:
+  users: []
+  access_roles: []
+entries:
+  - role_name: "FR_SVC_ACCOUNT"
+    users:
+      - "SVC_ACCOUNT"
+    access_roles:
+      - "_AR_SHARED_TRANSFORM_WH"
+      - "_AR_SHARED_INGEST_WH"
+      - "_DR_DB1_RW"
+      - "_DR_DB2_RW"
+      - "_DR_DB3_RW"

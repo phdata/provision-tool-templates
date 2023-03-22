@@ -1,0 +1,13 @@
+roles:
+  - name: {{ role_name }}
+roleGrants:
+  - name: {{ role_name }}
+    toRoles:
+     - "SYSADMIN"
+  - name: {{ role_name }}
+    {% if access_roles %}
+    toRoles: {{ access_roles }}
+    {% endif %}
+    {% if users %}
+    toUsers: {{ users }}
+    {% endif %}
