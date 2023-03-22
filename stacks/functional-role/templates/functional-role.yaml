@@ -5,9 +5,13 @@ roleGrants:
     toRoles:
      - "SYSADMIN"
   - name: {{ role_name }}
-    {% if access_roles %}
-    toRoles: {{ access_roles }}
-    {% endif %}
-    {% if users %}
-    toUsers: {{ users }}
-    {% endif %}
+    {% if users_granted %}
+    toUsers: {{ users_granted }}
+    {% endif %
+  {% if granted_roles %}
+      {% for gr in granted_roles %}
+  - name: {{ gr }}
+    toRoles:
+      - {{ role_name }}
+      {% endfor %}
+  {% endif %}

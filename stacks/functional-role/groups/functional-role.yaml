@@ -1,11 +1,11 @@
 defaults:
-  users: []
-  access_roles: []
+  users_granted: []
+  granted_roles: []
 entries:
   - role_name: "FR_SVC_ACCOUNT"
-    users:
+    users_granted:
       - "SVC_ACCOUNT"
-    access_roles:
+    granted_roles:
       - "_AR_SHARED_TRANSFORM_WH"
       - "_AR_SHARED_INGEST_WH"
       - "_DR_DB1_RW"
