@@ -22,5 +22,7 @@ This stack is a portion of a stack to manage Functional Roles in your environmen
 
 ## CI/CD Templates
 
-CI/CD templates for different build servers are being created. While they are being created, you can use the old Tram CICD templates from the [Tram CICD template repository](https://github.com/phdata/tram-cicd-template/) as a starting point.
+[Github Actions Template](https://github.com/phdata/provision-actions-demo)
+
+Please contact the Product Engineering team for other build server templates.
 
