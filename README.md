@@ -5,11 +5,11 @@ This repository contains templates for bootstrapping the phData [Provision Tool]
 
 ## Complete Stacks
 
-Example stacks can be found in the [stacks_complete](./stacks_complete) directory.
+Example stacks can be found in the [stacks_complete](./stacks/complete) directory.
 
 ### Source-Product
 
-The [Source-Product](stacks_complete/source-product) stack organizes data into 'sources' that are consumed by 'products', taking advantage of the Snowflake role hierarchy to enforce one-way data flow and least-privilege access.
+The [Source-Product](stacks/complete/source-product) stack organizes data into 'sources' that are consumed by 'products', taking advantage of the Snowflake role hierarchy to enforce one-way data flow and least-privilege access.
 
 ### Quickstart
 
