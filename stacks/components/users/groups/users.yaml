@@ -1,0 +1,29 @@
+defaults:
+  # Is the user created with SCIM? Provision tool with do ALTER statements only.
+  alterableOnly: false
+
+  # user defaults
+  tags:
+  password:
+  login_name:
+  display_name:
+  first_name:
+  middle_name:
+  last_name:
+  email:
+  must_change_password:
+  disabled:
+  default_warehouse:
+  default_namespace:
+  default_role:
+  default_secondary_roles:
+  rsa_public_key:
+  rsa_public_key_2:
+  comment:
+  days_to_expiry: 0
+
+entries:
+  - username: "SIMPLE@PHDATA.IO"
+  - username: "SVC_PHDATA"
+    default_warehouse: "PHDATA_WH"
+    default_role: "FR_PHDATA"
