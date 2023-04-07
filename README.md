@@ -5,7 +5,7 @@ This repository contains templates for bootstrapping the phData [Provision Tool]
 
 ## Complete Stacks
 
-Example stacks can be found in the [stacks_complete](./stacks/complete) directory.
+Example stacks can be found in the [stacks/complete](./stacks/complete) directory.
 
 ### Source-Product
 
