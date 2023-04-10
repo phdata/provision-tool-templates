@@ -3,66 +3,19 @@ users:
     alterableOnly: {{ alterableOnly }}
     tags: {{ tags }}
     properties:
-      {% if display_name is defined and display_name != 'null' %}
       DISPLAY_NAME: {{ display_name }}
-      {% endif %}
-
-      {% if first_name is defined and first_name != 'null' %}
       FIRST_NAME: {{ first_name }}
-      {% endif %}
-
-      {% if middle_name is defined and middle_name != 'null' %}
       MIDDLE_NAME: {{ middle_name }}
-      {% endif %}
-
-      {% if last_name is defined and last_name != 'null' %}
       LAST_NAME: {{ last_name }}
-      {% endif %}
-
-      {% if email is defined and email != 'null' %}
       EMAIL: {{ email }}
-      {% endif %}
-
-      {% if display_name is defined and display_name != 'null' %}
       MUST_CHANGE_PASSWORD: {{ must_change_password }}
-      {% endif %}
-
-      {% if disabled is defined and disabled != 'null' %}
       DISABLED: {{ disabled }}
-      {% endif %}
-
-      {% if password is defined and password != 'null' %}
       PASSWORD: {{ password }}
-      {% endif %}
-
-      {% if default_role is defined and default_role != 'null' %}
       DEFAULT_ROLE: {{ default_role }}
-      {% endif %}
-
-      {% if default_warehouse is defined and default_warehouse != 'null'%}
       DEFAULT_WAREHOUSE: {{ default_warehouse }}
-      {% endif %}
-
-      {% if default_namespace is defined and default_namespace != 'null' %}
       DEFAULT_NAMESPACE: {{ default_namespace }}
-      {% endif %}
-
-      {% if default_secondary_roles is defined and default_secondary_roles != 'null' %}
       DEFAULT_SECONDARY_ROLES: {{ default_secondary_roles }}
-      {% endif %}
-
-      {% if rsa_public_key is defined and rsa_public_key != 'null' %}
       RSA_PUBLIC_KEY: {{ rsa_public_key }}
-      {% endif %}
-
-      {% if rsa_public_key_2 is defined and rsa_public_key_2 != 'null' %}
       RSA_PUBLIC_KEY_2: {{ rsa_public_key_2 }}
-      {% endif %}
-
-      {% if comment is defined and comment != 'null' %}
       COMMENT: {{ comment }}
-      {% endif %}
-
-      {% if days_to_expiry != 0 %}
       DAYS_TO_EXPIRY: {{ days_to_expiry }}
-      {% endif %}
