@@ -3,23 +3,23 @@ defaults:
   alterableOnly: false
 
   # user defaults
-  tags:
-  password:
-  login_name:
-  display_name:
-  first_name:
-  middle_name:
-  last_name:
-  email:
-  must_change_password:
-  disabled:
-  default_warehouse:
-  default_namespace:
-  default_role:
-  default_secondary_roles:
-  rsa_public_key:
-  rsa_public_key_2:
-  comment:
+  tags: {}
+  password: null
+  login_name: null
+  display_name: null
+  first_name: null
+  middle_name: null
+  last_name: null
+  email: null
+  must_change_password: null
+  disabled: null
+  default_warehouse: null
+  default_namespace: null
+  default_role: null
+  default_secondary_roles: null
+  rsa_public_key: null
+  rsa_public_key_2: null
+  comment: null
   days_to_expiry: 0
 
 entries:
