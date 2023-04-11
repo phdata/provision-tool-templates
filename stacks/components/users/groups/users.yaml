@@ -24,6 +24,9 @@ defaults:
 
 entries:
   - username: "SIMPLE@PHDATA.IO"
+    tags:
+      - name: mydb.myschema.mytag
+        value: myval
   - username: "SVC_PHDATA"
     default_warehouse: "PHDATA_WH"
     default_role: "FR_PHDATA"
