@@ -1,7 +1,12 @@
 users:
   - name: "{{ username }}"
     alterableOnly: {{ alterableOnly }}
-    tags: {{ tags }}
+    {% if tags %}
+    tags:
+      {% for tag in tags %}
+      {{ tag.name }}: {{ tag.value }}
+      {% endfor %}
+    {% endif %}
     properties:
       DISPLAY_NAME: {{ display_name }}
       FIRST_NAME: {{ first_name }}
