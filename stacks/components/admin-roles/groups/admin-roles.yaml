@@ -1,0 +1,19 @@
+defaults:
+  users_granted: []
+entries:
+  - admin_role: "ACCOUNTADMIN"
+    users_granted:
+     - "USER1@PHDATA.IO"
+     - "USER2@PHDATA.IO"
+  - admin_role: "SECURITYADMIN"
+    users_granted:
+     - "USER3@PHDATA.IO"
+     - "USER4@PHDATA.IO"
+  - admin_role: "SYSADMIN"
+    users_granted:
+     - "USER5@PHDATA.IO"
+     - "USER6@PHDATA.IO"
+  - admin_role: "USERADMIN"
+    users_granted:
+     - "USER7@PHDATA.IO"
+     - "USER8@PHDATA.IO"
