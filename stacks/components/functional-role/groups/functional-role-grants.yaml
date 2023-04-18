@@ -1,0 +1,5 @@
+entries:
+  - role_name: "FR_SVC_ACCOUNT"
+    granted_role: "_AR_SHARED_TRANSFORM_WH"
+  - role_name: "FR_DATA_ENGINEERS"
+    granted_role: "_DR_DB1_RW"

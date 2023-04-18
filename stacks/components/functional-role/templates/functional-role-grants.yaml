@@ -1,6 +1,4 @@
-roles:
-  - name: {{ role_name }}
 roleGrants:
   - name: {{ role_name }}
     toRoles:
-     - "SYSADMIN"
+      - {{ granted_role }}
