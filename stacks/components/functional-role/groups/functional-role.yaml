@@ -1,6 +1,3 @@
-defaults:
-  users_granted: []
-  granted_roles: []
 entries:
   - role_name: "FR_SVC_ACCOUNT"
     users_granted:

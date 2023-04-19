@@ -1,0 +1,5 @@
+entries:
+  - role_name: "FR_SVC_ACCOUNT"
+    user: "SVC_ACCOUNT"
+  - role_name: "FR_DATA_ENGINEERS"
+    user: "FIRSTNAMELASTNAME"
