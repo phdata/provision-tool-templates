@@ -1,3 +1,16 @@
+defaults:
+  users_granted: []
+  granted_roles: []
 entries:
   - role_name: "FR_SVC_ACCOUNT"
-  - role_name: "FR_DATA_ENGINEERS"
+    users_granted:
+      - name: "SVC_ACCOUNT"
+      - name: "SVC_ACCOUNT2"
+        destroy: true
+    granted_roles:
+      - name: "_AR_SHARED_TRANSFORM_WH"
+        destroy: true
+      - name: "_AR_SHARED_INGEST_WH"
+      - name: "_DR_DB1_RW"
+      - name: "_DR_DB2_RW"
+      - name: "_DR_DB3_RW"
