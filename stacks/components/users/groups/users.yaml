@@ -11,8 +11,8 @@ defaults:
   middle_name: null
   last_name: null
   email: null
-  must_change_password: null
-  disabled: null
+  must_change_password: false
+  disabled: false
   default_warehouse: null
   default_namespace: null
   default_role: null
