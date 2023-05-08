@@ -1,10 +1,6 @@
 // Global variables - update the below variables according to your environment
-
-// update the catalog task short description which is used to filter Tram task
-var catalog_task_short_description = "Snowflake User Access Request";
-
 // update the list collector field name if there is a list collector in your form
-var ritm_list_collector_field_name = "access_required_for";
+var ritm_list_collector_field_name = "";
 
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
     var query = request.queryParams.query;
@@ -63,7 +59,7 @@ var ritm_list_collector_field_name = "access_required_for";
 
     //    use the below syntax if there is a requirement to concat different form fields
         if (gr.getValue("short_description") == "Snowflake New Workspace Request") {
-            body['workspace_name'] = (body["business_unit_name"] + '_' + body["project_name"]).toUpperCase();
+            body['workspace_name'] = (body["business_unit"] + '_' + body["project_name"]).toUpperCase();
         }
 
         body = getUserDetails(gr.getValue("requested_for.email.getDisplayvalue()"), body);
@@ -79,7 +75,7 @@ var ritm_list_collector_field_name = "access_required_for";
     function getCatalogTaskInfo(ritm_sys_id, body) {
         var grTask = new GlideRecord('sc_task');
         grTask.addQuery('parent', ritm_sys_id);
-        grTask.addQuery('short_description', 'Snowflake User Access Request');
+        grTask.addQuery('short_description', 'Provide requested service');
         grTask.query();
         while (grTask.next()) {
             body['sctask_number'] = grTask.number;
