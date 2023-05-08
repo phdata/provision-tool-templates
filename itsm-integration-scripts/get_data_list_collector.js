@@ -6,7 +6,7 @@ var catalog_task_short_description = "Snowflake User Access Request";
 // update the list collector field name if there is a list collector in your form
 var ritm_list_collector_field_name = "access_required_for";
 
-(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+(function process(request, response) {
     var query = request.queryParams.query;
     var limit = request.queryParams.limit;
 
@@ -61,10 +61,10 @@ var ritm_list_collector_field_name = "access_required_for";
             }
         }
 
-    //    use the below syntax if there is a requirement to concat different form fields
-        if (gr.getValue("short_description") == "Snowflake New Workspace Request") {
-            body['workspace_name'] = (body["business_unit_name"] + '_' + body["project_name"]).toUpperCase();
-        }
+//        use the below syntax if there is a requirement to concat different form fields
+//         if (gr.getValue("short_description") == "Request New Snowflake Workspace") {
+//             body['workspace_name'] = (body["business_unit_name"] + '_' + body["project_name"]).toUpperCase();
+//         }
 
         body = getUserDetails(gr.getValue("requested_for.email.getDisplayvalue()"), body);
 
