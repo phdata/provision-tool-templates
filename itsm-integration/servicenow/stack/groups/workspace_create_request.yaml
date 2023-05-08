@@ -1,0 +1,22 @@
+---
+destroy: false
+entries:
+- env: sales
+  ws: SALES_PROJECT1
+  source: project1
+- env: MS
+  ws: MS_PROJECT1
+  source: project1
+template:
+  engine: JINJA
+  path: workspace_create_request.yaml
+trigger:
+  config:
+    maxResults: 1000
+    query: cat_item%bdf3e72b97e22110a50ef8a6f053af0d%5Erequest.active%3Dtrue%5Eclosed_atISEMPTY%5Eapproval%3DApproved%5Eshort_description%3DSnowflake%20New%20Workspace%20Request
+  fieldCallbacks:
+    ws: workspace_name
+  mapping:
+    env: $.business_unit
+    ws: $.workspace_name
+    source: $.project_name

@@ -1,0 +1,19 @@
+---
+destroy: false
+entries:
+- access: RW
+  workspace: MS_PROJECT1
+  username: satish1
+template:
+  engine: JINJA
+  path: workspace_access_request.yaml
+trigger:
+  config:
+    maxResults: 1000
+    query: cat_item%d4459f2b97a22110a50ef8a6f053af95%5Erequest.active%3Dtrue%5Eclosed_atISEMPTY%5Eapproval%3DApproved%5Eshort_description%3DSnowflake%20User%20Access%20Request%20Form
+  mapping:
+    access: $.role_type
+    workspace: $.workspace_name
+    username: $.requested_for
+  primaryKeys:
+  - username

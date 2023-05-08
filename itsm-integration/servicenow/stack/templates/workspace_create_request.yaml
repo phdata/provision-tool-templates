@@ -1,0 +1,28 @@
+roles:
+  - name: "{{env}}_{{source}}_RW"
+  - name: "{{env}}_{{source}}_RO"
+
+privilegeGrants:
+  - privilege: "ALL PRIVILEGES"
+    objectType: DATABASE
+    objectName: "{{env}}_{{source}}"
+    roleName: "{{env}}_{{source}}_RW"
+    grantOption: false 
+  - privilege: "USAGE"
+    objectType: DATABASE
+    objectName: "{{env}}_{{source}}"
+    roleName: "{{env}}_{{source}}_RO"
+    grantOption: false
+  - privilege: "USAGE"
+    objectType: "all schemas in database"
+    objectName: "{{env}}_{{source}}"
+    roleName: "{{env}}_{{source}}_RO"
+    grantOption: false
+
+databases:
+  - name: "{{env}}_{{source}}"
+
+roleGrants:
+  - name: "{{env}}_{{source}}_RO"
+    toRoles:
+      - "{{env}}_{{source}}_RW"
