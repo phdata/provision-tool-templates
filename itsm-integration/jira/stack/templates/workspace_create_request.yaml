@@ -1,0 +1,22 @@
+roles:
+  - name: "{{workspace_name}}_RW"
+  - name: "{{workspace_name}}_RO"
+privilegeGrants:
+  - privilege: "ALL PRIVILEGES"
+    objectType: DATABASE
+    objectName: "{{workspace_name}}"
+    roleName: "{{workspace_name}}_RW"
+    grantOption: false 
+  - privilege: "USAGE"
+    objectType: DATABASE
+    objectName: "{{workspace_name}}"
+    roleName: "{{workspace_name}}_RO"
+    grantOption: false
+
+databases:
+  - name: "{{workspace_name}}"
+
+roleGrants:
+  - name: "{{workspace_name}}_RO"
+    toRoles:
+      - "{{workspace_name}}_RW"

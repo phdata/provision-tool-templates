@@ -1,0 +1,19 @@
+image: openjdk:11
+
+pipelines:
+  definitions:
+    - step: &plan
+        name: "Provision Tool Plan"
+        script:
+          - bin/install-toolkit-cli
+          - toolkit-cli/toolkit provision trigger --plan
+    - step: &apply
+        name: "Provision Tool Apply"
+        script:
+          - bin/install-toolkit-cli
+          - toolkit-cli/toolkit provision trigger
+  pull-requests:
+    "**":
+  branches:
+    master:
+    - step: *apply
