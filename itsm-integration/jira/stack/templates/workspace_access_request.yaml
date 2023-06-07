@@ -1,0 +1,4 @@
+roleGrants:
+  - name: "{{workspace_name}}_{{access}}"
+    toUsers: 
+      - {{username}}

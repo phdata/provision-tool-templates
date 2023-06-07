@@ -1,0 +1,15 @@
+---
+destroy: false
+entries:
+- workspace_name: Toolkit
+template:
+  engine: JINJA
+  path: workspace_create_request.yaml
+trigger:
+  config:
+    maxResults: 1000
+    query: "project = IT AND \"Approvals[Approvals]\" = approved() AND status in (\"Waiting for support\") AND \"Request Type\" = \"Create A Snowflake Workspace\" AND createdDate > -14d ORDER BY updatedDate"
+  fieldCallbacks:
+    workspace_name: customfield_10062
+  mapping:
+    workspace_name: $.fields.customfield_10039
