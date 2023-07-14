@@ -1,0 +1,7 @@
+entries:
+  - name: share1
+    readerAccounts:
+      - reader1
+  - name: share2
+    readerAccounts:
+      - reader2

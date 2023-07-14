@@ -1,0 +1,9 @@
+readerAccounts:
+  - name: reader1
+    properties:
+      admin_name: admin
+      admin_password: "{{ reader1_password }}"
+  - name: reader2
+    properties:
+      admin_name: admin
+      admin_password: "{{ reader2_password }}"

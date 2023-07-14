@@ -5,7 +5,3 @@ sed -E -i '' 's/privileges:/privilegeGrants:/g' $1
 sed -E -i '' 's/([ \t]+)users:/\1toUsers:/g' $1
 sed -E -i '' 's/([ \t]+)roles:/\1toRoles:/g' $1
 sed -E -i '' 's/parameters:/properties:/g' $1
-
-
-
-
