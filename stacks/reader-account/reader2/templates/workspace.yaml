@@ -1,6 +1,6 @@
 users:
   - name: {{user}}
 roleGrants:
-  - name: share1_reader
+  - name: share2_reader
     toUsers:
       - {{user}}

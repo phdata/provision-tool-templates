@@ -1,10 +1,10 @@
 sharedDatabases:
-  - name: share1_db
-    shareName: {{main_account}}.share1
+  - name: share2_db
+    shareName: {{main_account}}.share2
 roles:
-  - name: share1_reader
+  - name: share2_reader
 privilegeGrants:
   - privilege: imported privileges
     objectType: database
-    objectName: share1_db
-    roleName: share1_reader
+    objectName: share2_db
+    roleName: share2_reader
