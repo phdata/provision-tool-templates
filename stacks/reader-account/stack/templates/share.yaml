@@ -1,0 +1,13 @@
+databases:
+  - name: {{name}}_db
+shares:
+  - name: {{name}}
+    readerAccounts:
+    {% for account in readerAccounts %}
+      - {{account}}
+    {% endfor %}
+shareGrants:
+  - shareName: {{name}}
+    privilege: usage
+    objectType: database
+    objectName: {{name}}_db

@@ -1,0 +1,10 @@
+sharedDatabases:
+  - name: share1_db
+    shareName: {{main_account}}.share1
+roles:
+  - name: share1_reader
+privilegeGrants:
+  - privilege: imported privileges
+    objectType: database
+    objectName: share1_db
+    roleName: share1_reader

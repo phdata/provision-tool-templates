@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
 fi
 
 
-# check if converte the path exists and if it does delete it
+# Check if the converted path exists, and if it does, delete it
 if [ -d "$1-converted" ]; then
     rm -rf $1-converted
 fi
@@ -27,5 +27,3 @@ mv $converted_path/models $converted_path/templates
 find_filter = "-type f \( -name "*.yaml" -o -name "*.yml" \)"
 find $converted_path/groups $find_filter -exec $group_convert_script '{}' \;
 find $converted_path/templates $find_filter -exec $template_convert_script '{}' \;
-
-
