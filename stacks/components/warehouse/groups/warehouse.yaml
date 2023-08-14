@@ -1,6 +1,5 @@
 defaults:
   # template defaults
-  warehouse_admin_role: false
   warehouse_name_prefix: ''
   warehouse_name_postfix: '_WH'
 
