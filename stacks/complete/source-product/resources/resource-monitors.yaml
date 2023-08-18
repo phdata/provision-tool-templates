@@ -1,0 +1,12 @@
+resourceMonitors:
+  - name: ACCOUNT_RESOURCE_MONITOR
+    creditQuota: 500
+    startTimestamp: IMMEDIATELY
+    frequency: MONTHLY
+    triggers:
+      - threshold: 50
+        action: NOTIFY
+      - threshold: 75
+        action: NOTIFY
+      - threshold: 90
+        action: NOTIFY
