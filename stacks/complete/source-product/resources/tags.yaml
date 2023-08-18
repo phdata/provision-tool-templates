@@ -1,0 +1,19 @@
+tags:
+  - name: ENVIRONMENT
+    database: GOVERNANCE
+    schema: TAGS
+    allowedValues:
+      - PRODUCTION
+      - DEVELOPMENT
+      - SANDBOX
+    properties:
+      comment: Environment Supported
+  - name: SECURITY_CLASS
+    database: GOVERNANCE
+    schema: TAGS
+    allowedValues:
+      - PII
+      - PCI
+      - PHI
+    properties:
+        comment: Sensitive Data type

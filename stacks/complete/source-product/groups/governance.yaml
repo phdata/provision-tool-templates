@@ -1,0 +1,10 @@
+template:
+  path: governance.yaml
+defaults:
+  provision_role: PROVISION_ADMIN
+entries:
+  - governance_database: governance
+    tag_role: TAG_ADMIN
+    tag_schema: tags
+    policy_role: POLICY_ADMIN
+    policy_schema: policies
