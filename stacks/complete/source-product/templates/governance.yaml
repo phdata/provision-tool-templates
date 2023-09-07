@@ -1,0 +1,69 @@
+# create roles to manage tags and policies
+roles:
+- name: {{ tag_role }}
+- name: {{ policy_role }}
+
+# Grant roles to provision tool service account role
+roleGrants:
+- name: {{ tag_role }}
+  toRoles:
+  - {{ provision_role }}
+- name: {{ policy_role }}
+  toRoles:
+  - {{ provision_role }}
+
+# create governance Database
+databases:
+- name: {{ governance_database }}
+
+# create Schemas in governance Database
+schemas:
+- database: {{ governance_database }}
+  name: {{ tag_schema }}
+- database: {{ governance_database }}
+  name: {{ policy_schema }}
+
+
+# Grants TAG_ADMIN role to access to manage in tag database/schema
+privilegeGrants:
+- privilege: USAGE
+  objectType: DATABASE
+  objectName: {{ governance_database }}
+  roleName: {{ tag_role }}
+- privilege: USAGE
+  objectType: SCHEMA
+  objectName: {{ governance_database }}.{{ tag_schema }}
+  roleName: {{ tag_role }}
+- privilege: "CREATE TAG"
+  objectType: SCHEMA
+  objectName: {{ governance_database }}.{{ tag_schema }}
+  roleName: {{ tag_role }}
+# Grants POLICY_ADMIN role to access manage policies database/schema
+- privilege: USAGE
+  objectType: database
+  objectName: {{ governance_database }}
+  roleName: {{ policy_role }}
+- privilege: USAGE
+  objectType: schema
+  objectName: {{ governance_database }}.{{ policy_schema }}
+  roleName: {{ policy_role }}
+- privilege: CREATE PASSWORD POLICY
+  objectType: schema
+  objectName: {{ governance_database }}.{{ policy_schema }}
+  roleName: {{ policy_role }}
+- privilege: APPLY PASSWORD POLICY
+  objectType: account
+  objectName: ""
+  roleName: {{ policy_role }}
+- privilege: CREATE SESSION POLICY
+  objectType: schema
+  objectName: {{ governance_database }}.{{ policy_schema }}
+  roleName: {{ policy_role }}
+- privilege: APPLY SESSION POLICY
+  objectType: account
+  objectName: ""
+  roleName: {{ policy_role }}
+- privilege: CREATE NETWORK POLICY
+  objectType: account
+  objectName: ""
+  roleName: {{ policy_role }}

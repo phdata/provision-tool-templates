@@ -1,0 +1,21 @@
+account:
+  resourceMonitor: ACCOUNT_RESOURCE_MONITOR
+  sessionPolicy: GOVERNANCE.POLICIES.ACCOUNT_SESSION_POLICY
+  passwordPolicy: GOVERNANCE.POLICIES.ACCOUNT_PASSWORD_POLICY
+  parameters:
+    abort_detached_query: true
+    allow_client_mfa_caching: true
+    allow_id_token: true
+    client_enable_log_info_statement_parameters: false
+    data_retention_time_in_days: 1
+    error_on_nondeterministic_merge: true
+    network_policy: ACCOUNT_NETWORK_POLICY
+    max_data_extension_time_in_days: 14
+    prevent_unload_to_inline_url: true
+    require_storage_integration_for_stage_creation: true
+    require_storage_integration_for_stage_operation: true
+    statement_queued_timeout_in_seconds: 3600 # 1 hour
+    statement_timeout_in_seconds: 21600 # 6 hours
+    timezone: UTC
+    transaction_abort_on_error: true
+    periodic_data_rekeying: true

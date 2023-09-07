@@ -134,3 +134,25 @@ To a user access to Snowflake's built in administrator roles use the [groups/adm
 
 See Snowflake documentation on built in user roles.
 
+
+## Governance 
+
+The governance database and its associated resources(Tagging and Policies), including schemas and grants, are managed using [groups/governance.yaml](groups/governance.yaml) file.
+
+
+## Tagging 
+
+For creating new tags use the resource file [resources/tags.yaml](resources/tags.yaml) Before applying tags through provision tool you must grant "apply tags on account" to TAG_ADMIN role
+
+
+## Policies 
+
+To manage policies(network/session/password policies) use the resource file [resources/policies.yaml](resources/policies.yaml) 
+
+## Resource Monitors
+
+To manage Resource Monitors use the resource file [resources/resource-monitors.yaml](resources/resource-monitors.yaml) 
+
+## Account parameters
+
+To manage different account level parameters use the resource file [resources/account-parameters.yaml](resources/account-parameters.yaml) 

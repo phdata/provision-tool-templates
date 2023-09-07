@@ -16,20 +16,20 @@ roles:
     # Functional access
   - name: "FR_U_{{ username }}"
 databases:
-  - name: "USER"
+  - name: "USER_{{username}}"
 schemas:
   - name: "{{ username }}"
-    database: "USER"
+    database: "USER_{{username}}"
 privilegeGrants:
     # Database
   - privilege: "USAGE"
     objectType: DATABASE
-    objectName: "USER"
+    objectName: "USER_{{username}}"
     roleName: "DR_U_{{ username }}"
     grantOption: false
   - privilege: "ALL PRIVILEGES"
     objectType: SCHEMA
-    objectName: "USER.{{ username }}"
+    objectName: "USER_{{username}}.{{ username }}"
     roleName: "DR_U_{{ username }}"
     grantOption: true
 roleGrants:
