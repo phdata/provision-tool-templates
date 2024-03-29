@@ -1,0 +1,25 @@
+defaults:
+  users_granted: []
+  granted_roles: []
+entries:
+  - role_name: "FR_DBT"
+    users_granted:
+      - name: "SVC_DBT"
+      - name: "FiLastname1"
+      - name: "FiLastname27"
+    granted_roles:
+      - name: "_AR_SHARED_TRANSFORM_WH"
+      - name: "_AR_SHARED_INGEST_WH"
+      - name: "_DR_S_SALESFORCE_RW"
+      - name: "_DR_S_MAVENLINK_RW"
+      - name: "_DR_S_JIRA_RW"
+      - name: "_DR_P_HR_RW"
+      - name: "_DR_P_SALES_RW"
+      - name: "_DR_P_PMO_RW"
+  - role_name: "FR_TABLEAU"
+    users_granted:
+      - name: "SVC_TABLEAU"
+    granted_roles:
+      - name: "_AR_SHARED_CONSUME_WH"
+      - name: "_DR_P_SALES_CONSUME"
+      - name: "_DR_P_PMO_CONSUME"

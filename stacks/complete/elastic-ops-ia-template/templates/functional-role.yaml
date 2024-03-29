@@ -1,0 +1,27 @@
+
+roles:
+  - name: {{ role_name }}
+roleGrants:
+  - name: {{ role_name }}
+    toRoles:
+     - "SYSADMIN"
+  {% for ug in users_granted %}
+  - name: {{ role_name }}
+    {% if 'destroy' in ug %}
+    {% if ug.destroy %}
+    destroy: true
+    {% endif %}
+    {% endif %}
+    toUsers:
+      - {{ ug.name }}
+  {% endfor %}
+  {% for gr in granted_roles %}
+  - name: {{ gr.name }}
+    {% if 'destroy' in gr %}
+    {% if gr.destroy %}
+    destroy: true
+    {% endif %}
+    {% endif %}
+    toRoles:
+      - {{ role_name }}
+  {% endfor %}
