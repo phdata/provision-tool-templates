@@ -1,0 +1,26 @@
+users:
+  - name: "{{ username }}"
+    alterableOnly: {{ alterableOnly }}
+    {% if tags %}
+    tags:
+      {% for tag in tags %}
+      {{ tag.name }}: {{ tag.value }}
+      {% endfor %}
+    {% endif %}
+    properties:
+      DISPLAY_NAME: {{ display_name }}
+      FIRST_NAME: {{ first_name }}
+      MIDDLE_NAME: {{ middle_name }}
+      LAST_NAME: {{ last_name }}
+      EMAIL: {{ email }}
+      MUST_CHANGE_PASSWORD: {{ must_change_password }}
+      DISABLED: {{ disabled }}
+      PASSWORD: {{ password }}
+      DEFAULT_ROLE: {{ default_role }}
+      DEFAULT_WAREHOUSE: {{ default_warehouse }}
+      DEFAULT_NAMESPACE: {{ default_namespace }}
+      DEFAULT_SECONDARY_ROLES: {{ default_secondary_roles }}
+      RSA_PUBLIC_KEY: {{ rsa_public_key }}
+      RSA_PUBLIC_KEY_2: {{ rsa_public_key_2 }}
+      COMMENT: {{ comment }}
+      DAYS_TO_EXPIRY: {{ days_to_expiry }}

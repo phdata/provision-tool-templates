@@ -1,0 +1,49 @@
+{% set warehouse_generated_name = warehouse_name_prefix + name + warehouse_name_postfix %}
+warehouses:
+  - name: "{{ warehouse_generated_name }}"
+    properties:
+      WAREHOUSE_SIZE: "{{ warehouse_size }}"
+      MAX_CLUSTER_COUNT: "{{ max_cluster_count }}"
+      MIN_CLUSTER_COUNT: "{{ min_cluster_count }}"
+      SCALING_POLICY: "{{ scaling_policy }}"
+      AUTO_SUSPEND: "{{ auto_suspend }}"
+      AUTO_RESUME: "{{ auto_resume }}"
+      COMMENT: "{{ comment }}"
+      ENABLE_QUERY_ACCELERATION: "{{ enable_query_acceleration }}"
+      QUERY_ACCELERATION_MAX_SCALE_FACTOR: "{{ query_acceleration_max_scale_factor }}"
+      WAREHOUSE_TYPE: "{{ warehouse_type }}"
+      INITIALLY_SUSPENDED: "{{ initially_suspended }}"
+      MAX_CONCURRENCY_LEVEL: "{{ max_concurrency_level }}"
+      STATEMENT_TIMEOUT_IN_SECONDS: "{{ statement_timeout_in_seconds }}"
+      STATEMENT_QUEUED_TIMEOUT_IN_SECONDS: "{{ statement_queued_timeout_in_seconds }}"
+      RESOURCE_MONITOR: "{{ warehouse_generated_name }}"
+resourceMonitors:
+  - name: "{{ warehouse_generated_name }}"
+    creditQuota: "{{ creditQuota }}"
+    frequency: "{{ frequency }}"
+    startTimestamp: "{{ startTimestamp }}"
+    triggers:
+      {% if triggers is defined %}
+      {% for t in triggers %}
+      - threshold: {{ t.threshold }}
+        action: {{ t.action }}
+      {% endfor %}
+      {% endif %}
+roles:
+  - name: "_AR_{{ warehouse_generated_name }}"
+  {% if warehouse_admin_role %}
+  - name: "_AR_{{ warehouse_generated_name }}_ADMIN"
+  {% endif %}
+privilegeGrants:
+  - privilege: "USAGE"
+    objectType: WAREHOUSE
+    objectName: "{{ warehouse_generated_name }}"
+    roleName: "_AR_{{ warehouse_generated_name }}"
+    grantOption: false
+  {% if warehouse_admin_role %}
+  - privilege: "ALL PRIVILEGES"
+    objectType: WAREHOUSE
+    objectName: "{{ warehouse_generated_name }}"
+    roleName: "_AR_{{ warehouse_generated_name }}_ADMIN"
+    grantOption: true
+  {% endif %}

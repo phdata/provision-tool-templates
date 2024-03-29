@@ -1,0 +1,46 @@
+defaults:
+  # template defaults
+  warehouse_admin_role: false
+  warehouse_name_prefix: ''
+  warehouse_name_postfix: '_WH'
+
+  # warehouse defaults
+  warehouse_size: XSMALL
+  max_cluster_count: 1
+  min_cluster_count: 1
+  scaling_policy: ECONOMY
+  auto_suspend: 600
+  auto_resume: true
+  comment: Toolkit Provision
+  enable_query_acceleration: false
+  query_acceleration_max_scale_factor: 8
+  warehouse_type: STANDARD
+  initially_suspended: true
+  max_concurrency_level: 8
+  statement_timeout_in_seconds: 7200
+  statement_queued_timeout_in_seconds: 1800
+
+  # resource monitor defaults
+  creditQuota: 10
+  frequency: MONTHLY
+  startTimestamp: IMMEDIATELY
+  triggers:
+    - threshold: 75
+      action: NOTIFY
+    - threshold: 100
+      action: SUSPEND
+    - threshold: 125
+      action: SUSPEND_IMMEDIATE
+
+entries:
+  - name: "SHARED_INGEST"
+    creditQuota: 100
+    auto_suspend: 60
+  - name: "SHARED_TRANSFORM"
+    warehouse_size: "LARGE"
+    creditQuota: 300
+    max_cluster_count: 3
+    statement_timeout_in_seconds: 14400
+  - name: "SHARED_CONSUME"
+    warehouse_size: "MEDIUM"
+    creditQuota: 200
