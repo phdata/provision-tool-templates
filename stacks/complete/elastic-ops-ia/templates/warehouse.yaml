@@ -13,9 +13,9 @@ warehouses:
       QUERY_ACCELERATION_MAX_SCALE_FACTOR: "{{ query_acceleration_max_scale_factor }}"
       WAREHOUSE_TYPE: "{{ warehouse_type }}"
       INITIALLY_SUSPENDED: "{{ initially_suspended }}"
-      MAX_CONCURRENCY_LEVEL: "{{ max_concurrency_level }}"
-      STATEMENT_TIMEOUT_IN_SECONDS: "{{ statement_timeout_in_seconds }}"
-      STATEMENT_QUEUED_TIMEOUT_IN_SECONDS: "{{ statement_queued_timeout_in_seconds }}"
+      MAX_CONCURRENCY_LEVEL: {{ max_concurrency_level }}
+      STATEMENT_TIMEOUT_IN_SECONDS: {{ statement_timeout_in_seconds }}
+      STATEMENT_QUEUED_TIMEOUT_IN_SECONDS: {{ statement_queued_timeout_in_seconds }}
       RESOURCE_MONITOR: "{{ warehouse_generated_name }}"
 resourceMonitors:
   - name: "{{ warehouse_generated_name }}"
