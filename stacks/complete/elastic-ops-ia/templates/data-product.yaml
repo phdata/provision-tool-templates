@@ -49,119 +49,140 @@ privilegeGrants:
     grantOption: false
     # Table
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE TABLES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "TABLES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE TABLES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "TABLES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE TABLES IN SCHEMA"
-    objectName: "P_{{ product_name }}_DB.CONSUME"
+    objectType: "TABLES"
+    objectName: "SCHEMA P_{{ product_name }}_DB.CONSUME"
     roleName: "_DR_P_{{ product_name }}_DB_CONSUME"
+    future: true
     grantOption: false
     # External Table
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "EXTERNAL TABLES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "EXTERNAL TABLES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE EXTERNAL TABLES IN SCHEMA"
-    objectName: "P_{{ product_name }}_DB.CONSUME"
+    objectType: "EXTERNAL TABLES"
+    objectName: "SCHEMA P_{{ product_name }}_DB.CONSUME"
     roleName: "_DR_P_{{ product_name }}_DB_CONSUME"
+    future: true
     grantOption: false
     # View
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE VIEWS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "VIEWS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE VIEWS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "VIEWS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE VIEWS IN SCHEMA"
-    objectName: "P_{{ product_name }}_DB.CONSUME"
+    objectType: "VIEWS"
+    objectName: "SCHEMA P_{{ product_name }}_DB.CONSUME"
     roleName: "_DR_P_{{ product_name }}_DB_CONSUME"
+    future: true
     grantOption: false
     # Materialized View
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "MATERIALIZED VIEWS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "MATERIALIZED VIEWS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE MATERIALIZED VIEWS IN SCHEMA"
-    objectName: "P_{{ product_name }}_DB.CONSUME"
+    objectType: "MATERIALIZED VIEWS"
+    objectName: "SCHEMA P_{{ product_name }}_DB.CONSUME"
     roleName: "_DR_P_{{ product_name }}_DB_CONSUME"
+    future: true
     grantOption: false
     # Stream
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE STREAMS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "STREAMS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
     # Task
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE TASKS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "TASKS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
   - privilege: "MONITOR"
-    objectType: "FUTURE TASKS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "TASKS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RO"
+    future: true
     grantOption: false
     # Stage
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE STAGES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "STAGES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
   - privilege: "READ"
-    objectType: "FUTURE STAGES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "STAGES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RO"
+    future: true
     grantOption: false
     # File Format
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE FILE FORMATS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "FILE FORMATS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
     # Sequence
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE SEQUENCES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "SEQUENCES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
     # Function
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE FUNCTIONS IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "FUNCTIONS"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
     # Procedure
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE PROCEDURES IN DATABASE"
-    objectName: "P_{{ product_name }}_DB"
+    objectType: "PROCEDURES"
+    objectName: "DATABASE P_{{ product_name }}_DB"
     roleName: "_DR_P_{{ product_name }}_DB_RW"
+    future: true
     grantOption: false
 roleGrants:
   - name: "_DR_P_{{ product_name }}_DB_RO"
