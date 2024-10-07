@@ -77,130 +77,153 @@ privilegeGrants:
     grantOption: false
     # Table
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE TABLES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "TABLES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE TABLES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "TABLES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE TABLES IN SCHEMA"
-    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    objectType: "TABLES"
+    objectName: "SCHEMA S_{{ env }}_{{ source }}.SHARED"
     roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    future: true
     grantOption: false
     # External Table
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "EXTERNAL TABLES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE EXTERNAL TABLES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "EXTERNAL TABLES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE EXTERNAL TABLES IN SCHEMA"
-    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    objectType: "EXTERNAL TABLES"
+    objectName: "SCHEMA S_{{ env }}_{{ source }}.SHARED"
     roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    future: true
     grantOption: false
     # View
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE VIEWS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "VIEWS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE VIEWS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "VIEWS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE VIEWS IN SCHEMA"
-    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    objectType: "VIEWS"
+    objectName: "SCHEMA S_{{ env }}_{{ source }}.SHARED"
     roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    future: true
     grantOption: false
     # Materialized View
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "MATERIALIZED VIEWS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE MATERIALIZED VIEWS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "MATERIALIZED VIEWS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    future: true
     grantOption: false
   - privilege: "SELECT"
-    objectType: "FUTURE MATERIALIZED VIEWS IN SCHEMA"
-    objectName: "S_{{ env }}_{{ source }}.SHARED"
+    objectType: "MATERIALIZED VIEWS"
+    objectName: "SCHEMA S_{{ env }}_{{ source }}.SHARED"
     roleName: "DR_S_{{ env }}_{{ source }}_SHARED"
+    future: true
     grantOption: false
     # Pipe 
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE PIPES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "PIPES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
   - privilege: "MONITOR"
-    objectType: "FUTURE PIPES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "PIPES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    future: true
     grantOption: false
     # Stream
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE STREAMS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "STREAMS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
     # Task
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE TASKS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "TASKS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
   - privilege: "MONITOR"
-    objectType: "FUTURE TASKS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "TASKS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    future: true
     grantOption: false
     # Stage
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE STAGES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "STAGES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
   - privilege: "READ"
-    objectType: "FUTURE STAGES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "STAGES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RO"
+    future: true
     grantOption: false
     # File Format
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE FILE FORMATS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "FILE FORMATS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
     # Sequence
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE SEQUENCES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "SEQUENCES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
     # Function
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE FUNCTIONS IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "FUNCTIONS"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
     # Procedure
   - privilege: "ALL PRIVILEGES"
-    objectType: "FUTURE PROCEDURES IN DATABASE"
-    objectName: "S_{{ env }}_{{ source }}"
+    objectType: "PROCEDURES"
+    objectName: "DATABASE S_{{ env }}_{{ source }}"
     roleName: "DR_S_{{ env }}_{{ source }}_RW"
+    future: true
     grantOption: false
 roleGrants:
   - name: "AR_S_{{ env }}_{{ source }}_WH_ADMIN"
