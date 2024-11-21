@@ -22,9 +22,3 @@ This stack is a portion of a stack to manage Functional Roles in your environmen
 
 ### Warehouse  
 This stack is for managing warehouse creation in your environment.  
-
-## CI/CD Templates
-[Github Actions Template](https://github.com/phdata/provision-actions-demo)
-
-Please contact the Product Engineering team for other build server templates.
-
